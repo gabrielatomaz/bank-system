@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using BankSystem.Application.DataTransferObjects;
 using BankSystem.Application.Interfaces;
-using BankSystem.Application.Mappers;
 using BankSystem.Domain;
 using BankSystem.Domain.Core.Interfaces.Services;
 

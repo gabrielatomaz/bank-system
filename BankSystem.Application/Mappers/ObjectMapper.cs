@@ -1,6 +1,5 @@
 using System;
 using AutoMapper;
-using BankSystem.Application.DataTransferObjects;
 
 namespace BankSystem.Application.Mappers
 {

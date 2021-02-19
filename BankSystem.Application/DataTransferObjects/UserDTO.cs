@@ -1,5 +1,3 @@
-using AutoMapper;
-
 namespace BankSystem.Application.DataTransferObjects
 {
     public class UserDTO
