@@ -1,16 +1,13 @@
+using System;
 using BankSystem.Domain;
 using BankSystem.Infra.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Data.Models {
 	public class BankSystemContext : DbContext {
-		public BankSystemContext() { }
-		public BankSystemContext(DbContextOptions<BankSystemContext> options) : base (options) { }
-
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			optionsBuilder.UseMySQL("server=localhost;database=bank_system;user=root;password=gabriela1772");
-		}
+		public BankSystemContext(DbContextOptions<BankSystemContext> options) 
+			: base(options) { }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
