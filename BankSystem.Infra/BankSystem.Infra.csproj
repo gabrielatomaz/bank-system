@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -20,5 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BankSystem.Domain\Domain.csproj" />
     <ProjectReference Include="..\BankSystem.Domain.Core\BankSystem.Domain.Core.csproj" />
+    <ProjectReference Include="..\BankSystem.Application\BankSystem.Application.csproj" />
+    <ProjectReference Include="..\BankSystem.Domain.Services\BankSystem.Domain.Services.csproj" />
   </ItemGroup>
 </Project>
