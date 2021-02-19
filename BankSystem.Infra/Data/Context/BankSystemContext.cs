@@ -1,8 +1,6 @@
-using System;
 using BankSystem.Domain;
 using BankSystem.Infra.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace Data.Models {
 	public class BankSystemContext : DbContext {

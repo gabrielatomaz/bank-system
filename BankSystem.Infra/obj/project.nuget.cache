@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "b9Jbxrar2X/PioMZGFVSSf3aeO4lIkmtZJ8vvbUvApMFBtjKRhONCeNBozEJJqsZBOlIB8LuTamVrvX1i+6eXQ==",
+  "dgSpecHash": "28184IV8P3yhNfMbt/hwUZN8g8xO2D7Dm4ewTSekwl7Y58DqbnA4/whNwrjCU/A/G84EQ1u3qXDFM0YEwHlCMQ==",
   "success": true,
   "projectFilePath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Infra/BankSystem.Infra.csproj",
   "expectedPackageFiles": [

@@ -19,5 +19,6 @@
   
   <ItemGroup>
     <ProjectReference Include="..\BankSystem.Domain\Domain.csproj" />
+    <ProjectReference Include="..\BankSystem.Domain.Core\BankSystem.Domain.Core.csproj" />
   </ItemGroup>
 </Project>

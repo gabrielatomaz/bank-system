@@ -16,3 +16,5 @@
 /home/gabriela/Documents/codes/bank-system/BankSystem.Infra/obj/Debug/net5.0/ref/BankSystem.Infra.dll
 /home/gabriela/Documents/codes/bank-system/BankSystem.Infra/obj/Debug/net5.0/BankSystem.Infra.pdb
 /home/gabriela/Documents/codes/bank-system/BankSystem.Infra/obj/Debug/net5.0/BankSystem.Infra.genruntimeconfig.cache
+/home/gabriela/Documents/codes/bank-system/BankSystem.Infra/bin/Debug/net5.0/BankSystem.Domain.Core.dll
+/home/gabriela/Documents/codes/bank-system/BankSystem.Infra/bin/Debug/net5.0/BankSystem.Domain.Core.pdb

@@ -1920,6 +1920,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "BankSystem.Domain.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BankSystem.Domain.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankSystem.Domain.Core.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -7029,6 +7042,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "BankSystem.Domain.Core/1.0.0": {
+      "type": "project",
+      "path": "../BankSystem.Domain.Core/BankSystem.Domain.Core.csproj",
+      "msbuildProject": "../BankSystem.Domain.Core/BankSystem.Domain.Core.csproj"
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../BankSystem.Domain/Domain.csproj",
@@ -7037,6 +7055,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "BankSystem.Domain.Core >= 1.0.0",
       "Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.3",
@@ -7072,6 +7091,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "/home/gabriela/Documents/codes/bank-system/BankSystem.Domain.Core/BankSystem.Domain.Core.csproj": {
+              "projectPath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Domain.Core/BankSystem.Domain.Core.csproj"
+            },
             "/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/Domain.csproj": {
               "projectPath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/Domain.csproj"
             }
