@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
   
@@ -13,5 +15,9 @@
       <Content Update="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+   </ItemGroup>
+  
+   <ItemGroup>
+     <ProjectReference Include="..\BankSystem.Infra\BankSystem.Infra.csproj" />
    </ItemGroup>
 </Project>
