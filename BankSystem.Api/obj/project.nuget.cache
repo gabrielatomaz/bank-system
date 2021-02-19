@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ts/ELtZ5U52CXRpN2PvLGwHN8adJMoWjPrWxacA3wk12/RR7WY1o/YMlvPX+5VvQMeKnFozjMGF/Y4yFeKA8AQ==",
+  "dgSpecHash": "ZMSrIXCcVhUm9dFmg5hFQ1GTbk0Ost/ZjalszraX/2J1v4LgZV5kHa3EEGOmk4YUgkVxK5c51YYZ70XuS/SdLA==",
   "success": true,
-  "projectFilePath": "/home/gabriela/Documents/codes/bank-system/Services/BankSystem.Api/BankSystem.Api.csproj",
+  "projectFilePath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Api/BankSystem.Api.csproj",
   "expectedPackageFiles": [
     "/home/gabriela/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/home/gabriela/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",

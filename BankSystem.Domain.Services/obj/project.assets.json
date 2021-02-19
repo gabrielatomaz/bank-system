@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "BankSystem.Domain.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BankSystem.Domain.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankSystem.Domain.Core.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BankSystem.Domain.Core/1.0.0": {
+      "type": "project",
+      "path": "../BankSystem.Domain.Core/BankSystem.Domain.Core.csproj",
+      "msbuildProject": "../BankSystem.Domain.Core/BankSystem.Domain.Core.csproj"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../BankSystem.Domain/Domain.csproj",
+      "msbuildProject": "../BankSystem.Domain/Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "BankSystem.Domain.Core >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/home/gabriela/.nuget/packages/": {}
@@ -31,7 +68,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/gabriela/Documents/codes/bank-system/BankSystem.Domain.Core/BankSystem.Domain.Core.csproj": {
+              "projectPath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Domain.Core/BankSystem.Domain.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

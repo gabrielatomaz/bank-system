@@ -19,12 +19,12 @@ namespace BankSystem.Infra.Data.Repositories
             _bankSystemContext.SaveChanges();
         }
 
-        public IEnumerable<TEntity> getAll()
+        public IEnumerable<TEntity> GetAll()
         {
             return _bankSystemContext.Set<TEntity>().ToList();   
         }
 
-        public TEntity getBy(int id)
+        public TEntity GetBy(int id)
         {
             return _bankSystemContext.Set<TEntity>().Find(id);
         }

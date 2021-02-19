@@ -198,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gabriela/Documents/codes/bank-system/Services/BankSystem.Api/BankSystem.Api.csproj",
+      "projectUniqueName": "/home/gabriela/Documents/codes/bank-system/BankSystem.Api/BankSystem.Api.csproj",
       "projectName": "BankSystem.Api",
-      "projectPath": "/home/gabriela/Documents/codes/bank-system/Services/BankSystem.Api/BankSystem.Api.csproj",
+      "projectPath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Api/BankSystem.Api.csproj",
       "packagesPath": "/home/gabriela/.nuget/packages/",
-      "outputPath": "/home/gabriela/Documents/codes/bank-system/Services/BankSystem.Api/obj/",
+      "outputPath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/gabriela/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ONBcCIpIQfb3fUF5Bncxll1mL7XvaSy5uHUPgMdQbKPOgTZp8zqdqDNOTcuxzADPRcsR0dzAnsNySqkirW3qvQ==",
+  "dgSpecHash": "Je9aVt7gWNhT9jn/2D1XRLDez9wq9MdBye2/kgx44eIIH6nWu+kt+mHwu2yAZOMW7U9RxtiIJ9+RlBHIfqnG9A==",
   "success": true,
-  "projectFilePath": "/home/gabriela/Documents/codes/bank-system/Application/BankSystem.Application/BankSystem.Application.csproj",
+  "projectFilePath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Application/BankSystem.Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

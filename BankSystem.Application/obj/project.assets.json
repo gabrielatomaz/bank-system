@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gabriela/Documents/codes/bank-system/Application/BankSystem.Application/BankSystem.Application.csproj",
+      "projectUniqueName": "/home/gabriela/Documents/codes/bank-system/BankSystem.Application/BankSystem.Application.csproj",
       "projectName": "BankSystem.Application",
-      "projectPath": "/home/gabriela/Documents/codes/bank-system/Application/BankSystem.Application/BankSystem.Application.csproj",
+      "projectPath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Application/BankSystem.Application.csproj",
       "packagesPath": "/home/gabriela/.nuget/packages/",
-      "outputPath": "/home/gabriela/Documents/codes/bank-system/Application/BankSystem.Application/obj/",
+      "outputPath": "/home/gabriela/Documents/codes/bank-system/BankSystem.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/gabriela/.nuget/NuGet/NuGet.Config"
