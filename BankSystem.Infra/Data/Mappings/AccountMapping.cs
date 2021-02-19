@@ -14,7 +14,8 @@ namespace BankSystem.Infra.Data.Mappings
                 .IsRequired();
 
             builder.HasOne(account => account.User)
-                .WithMany();
+                .WithMany()
+                .HasForeignKey(account => account.UserId);
             
             builder.HasMany(account => account.Trasactions)
                 .WithOne();
