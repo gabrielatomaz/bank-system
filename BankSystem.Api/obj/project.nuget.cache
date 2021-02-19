@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ts/ELtZ5U52CXRpN2PvLGwHN8adJMoWjPrWxacA3wk12/RR7WY1o/YMlvPX+5VvQMeKnFozjMGF/Y4yFeKA8AQ==",
+  "success": true,
+  "projectFilePath": "/home/gabriela/Documents/codes/bank-system/Services/BankSystem.Api/BankSystem.Api.csproj",
+  "expectedPackageFiles": [
+    "/home/gabriela/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/gabriela/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/gabriela/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/home/gabriela/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/home/gabriela/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/home/gabriela/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

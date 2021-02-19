@@ -1,0 +1,12 @@
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/obj/Debug/net5.0/Domain.csprojAssemblyReference.cache
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/obj/Debug/net5.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/obj/Debug/net5.0/Domain.AssemblyInfoInputs.cache
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/obj/Debug/net5.0/Domain.AssemblyInfo.cs
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/obj/Debug/net5.0/Domain.csproj.CoreCompileInputs.cache
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/bin/Debug/net5.0/Domain.deps.json
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/bin/Debug/net5.0/Domain.dll
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/bin/Debug/net5.0/ref/Domain.dll
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/bin/Debug/net5.0/Domain.pdb
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/obj/Debug/net5.0/Domain.dll
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/obj/Debug/net5.0/ref/Domain.dll
+/home/gabriela/Documents/codes/bank-system/BankSystem.Domain/obj/Debug/net5.0/Domain.pdb
