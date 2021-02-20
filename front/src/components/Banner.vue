@@ -1,6 +1,6 @@
 
 <template>
-  <section class="hero is-primary">
+  <section :class="['hero', `is-${type}`]">
     <div class="hero-body">
       <p class="title">
         {{ title }}
@@ -17,6 +17,7 @@ export default {
   name: "Banner",
   props: {
     title: String,
+    type: String,
   },
 };
 </script>
