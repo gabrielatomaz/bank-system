@@ -22,7 +22,9 @@ namespace BankSystem.Infra.Data.Context
     public BankSystemContext CreateDbContext(string[] args)
     {
         var builder = new DbContextOptionsBuilder<BankSystemContext>();
-        builder.UseMySQL(_configuration.GetConnectionString("BankSystemDatabase"));
+        var connectionString = _configuration.GetConnectionString("BankSystemDatabase");
+
+        builder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
         return new BankSystemContext(builder.Options);
     }

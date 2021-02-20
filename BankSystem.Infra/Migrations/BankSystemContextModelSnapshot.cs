@@ -24,7 +24,7 @@ namespace BankSystem.Infra.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Agency")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<double>("Balance")
                         .HasColumnType("double");
@@ -35,18 +35,12 @@ namespace BankSystem.Infra.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId1")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("UserId1")
-                        .IsUnique();
 
                     b.ToTable("Accounts");
                 });
@@ -60,14 +54,12 @@ namespace BankSystem.Infra.Migrations
                     b.Property<int?>("AccountId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AccountId1")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("TransactionType")
                         .HasColumnType("int");
@@ -78,8 +70,6 @@ namespace BankSystem.Infra.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AccountId");
-
-                    b.HasIndex("AccountId1");
 
                     b.ToTable("Transactions");
                 });
@@ -93,7 +83,7 @@ namespace BankSystem.Infra.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(100) CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
 
@@ -104,13 +94,7 @@ namespace BankSystem.Infra.Migrations
                 {
                     b.HasOne("BankSystem.Domain.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BankSystem.Domain.User", null)
-                        .WithOne("Account")
-                        .HasForeignKey("BankSystem.Domain.Account", "UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -120,22 +104,11 @@ namespace BankSystem.Infra.Migrations
                     b.HasOne("BankSystem.Domain.Account", null)
                         .WithMany("Trasactions")
                         .HasForeignKey("AccountId");
-
-                    b.HasOne("BankSystem.Domain.Account", "Account")
-                        .WithMany()
-                        .HasForeignKey("AccountId1");
-
-                    b.Navigation("Account");
                 });
 
             modelBuilder.Entity("BankSystem.Domain.Account", b =>
                 {
                     b.Navigation("Trasactions");
-                });
-
-            modelBuilder.Entity("BankSystem.Domain.User", b =>
-                {
-                    b.Navigation("Account");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,9 +13,6 @@ namespace BankSystem.Infra.Data.Mappings
 			builder.Property(user => user.Name)
 				.HasMaxLength(100)
 				.IsRequired();
-
-			builder.HasOne(user => user.Account)
-				.WithOne();
 		}
   	}
 }

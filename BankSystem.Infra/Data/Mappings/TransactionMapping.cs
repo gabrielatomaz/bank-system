@@ -12,9 +12,12 @@ namespace BankSystem.Infra.Data.Mappings
 			
 			builder.Property(transaction => transaction.TransactionType)
 				.IsRequired();
+			
+			builder.Property(transaction => transaction.Value)
+				.IsRequired();
 
-			builder.HasOne(transaction => transaction.Account)
-				.WithMany();
+			builder.Property(transaction => transaction.Description)
+				.IsRequired();
 		}
 	}
 }
