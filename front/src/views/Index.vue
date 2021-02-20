@@ -18,7 +18,11 @@
               <Button
                 text="Sacar"
                 color="link"
-                :event="() => {}"
+                :event="
+                  () => {
+                    showTransactionModal({ name: 'withdraw', text: 'Sacar' });
+                  }
+                "
                 size="medium"
               />
             </div>
@@ -26,7 +30,14 @@
               <Button
                 text="Depositar"
                 color="success"
-                :event="() => {}"
+                :event="
+                  () => {
+                    showTransactionModal({
+                      name: 'deposit',
+                      text: 'Depositar',
+                    });
+                  }
+                "
                 size="medium"
               />
             </div>
@@ -34,7 +45,11 @@
               <Button
                 text="Pagar"
                 color="danger"
-                :event="() => {}"
+                :event="
+                  () => {
+                    showTransactionModal({ name: 'payment', text: 'Pagar' });
+                  }
+                "
                 size="medium"
               />
             </div>
@@ -45,11 +60,17 @@
     <div class="columns m-5">
       <Table :header="header" :data="data" />
     </div>
+    <TransactionModal
+      title="Sacar"
+      v-if="isTransactionModalOpen"
+      :close="closeransactionModal"
+      :transactionType="transactionType"
+    />
   </div>
 </template>
 
 <script>
-import { Banner, Level, Button, Table } from "../components";
+import { Banner, Level, Button, Table, TransactionModal } from "../components";
 
 export default {
   name: "Index",
@@ -59,10 +80,13 @@ export default {
     Level,
     Button,
     Table,
+    TransactionModal,
   },
 
   data() {
     return {
+      transactionType: {},
+      isTransactionModalOpen: false,
       user: {
         name: "Gabriela",
         account: {
@@ -129,6 +153,21 @@ export default {
         },
       ],
     };
+  },
+
+  methods: {
+    showTransactionModal({ name, text }) {
+      this.transactionType = {
+        name,
+        text,
+      };
+
+      this.isTransactionModalOpen = true;
+    },
+
+    closeransactionModal() {
+      this.isTransactionModalOpen = false;
+    },
   },
 };
 </script>

@@ -29,7 +29,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'info',
+      default: 'link',
     },
     icon: {
       type: String,

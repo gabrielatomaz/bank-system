@@ -3,6 +3,7 @@ import Table from './Table.vue'
 import Input from './Input.vue'
 import Banner from './Banner.vue'
 import Button from './Button.vue'
+import TransactionModal from './TransactionModal.vue'
 
 export {
     Level,
@@ -10,4 +11,5 @@ export {
     Input,
     Button,
     Banner,
+    TransactionModal,
 }
