@@ -9,7 +9,9 @@ namespace BankSystem.Application.Mappers
     {
         public UserDTOMapper() {
             CreateMap<User, UserDTO>();
-            CreateMap<List<User>, List<UserDTO>>();
+            CreateMap<IEnumerable<User>, List<UserDTO>>();
+            CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<IEnumerable<User>, List<UserDTO>>().ReverseMap();
         }
     }
 }

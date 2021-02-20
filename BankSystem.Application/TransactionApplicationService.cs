@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using BankSystem.Application.DataTransferObjects;
 using BankSystem.Application.Interfaces;
@@ -27,7 +28,7 @@ namespace BankSystem.Application
         {
             var transactions = _transactionService.GetAll();
 
-            return Mapper.Map<List<TransactionDTO>>(transactions);
+            return Mapper.Map<IEnumerable<TransactionDTO>>(transactions);
         }
 
         public TransactionDTO GetBy(int id)
@@ -37,16 +38,18 @@ namespace BankSystem.Application
             return Mapper.Map<TransactionDTO>(transaction);
         }
 
-        public void Remove(TransactionDTO transactionDTO)
+        public void Remove(int id)
         {
-            var transaction = Mapper.Map<Transaction>(transactionDTO);
+            var transaction = _transactionService.GetBy(id);
 
             _transactionService.Remove(transaction);
         }
 
-        public void Update(TransactionDTO transactionDTO)
+        public void Update(int id, TransactionDTO transactionDTO)
         {
             var transaction = Mapper.Map<Transaction>(transactionDTO);
+            transaction.Id = id;
+            transaction.Date = DateTime.Now;
 
             _transactionService.Update(transaction);
         }

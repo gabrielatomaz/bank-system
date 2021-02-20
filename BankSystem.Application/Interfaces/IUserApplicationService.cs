@@ -6,8 +6,8 @@ namespace BankSystem.Application.Interfaces
     public interface IUserApplicationService
     {
         void Add(UserDTO userDTO);
-        void Update(UserDTO userDTO);
-        void Remove(UserDTO userDTO);
+        void Update(int id, UserDTO userDTO);
+        void Remove(int id);
         UserDTO GetBy(int id);
         IEnumerable<UserDTO> GetAll();
     }

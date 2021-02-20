@@ -27,7 +27,7 @@ namespace BankSystem.Application
         {
             var accounts = _accountService.GetAll();
 
-            return Mapper.Map<List<AccountDTO>>(accounts);
+            return Mapper.Map<IEnumerable<AccountDTO>>(accounts);
         }
 
         public AccountDTO GetBy(int id)
@@ -37,16 +37,17 @@ namespace BankSystem.Application
             return Mapper.Map<AccountDTO>(account);
         }
 
-        public void Remove(AccountDTO accountDTO)
+        public void Remove(int id)
         {
-            var account = Mapper.Map<Account>(accountDTO);
+            var account = _accountService.GetBy(id);
 
             _accountService.Remove(account);
         }
 
-        public void Update(AccountDTO accountDTO)
+        public void Update(int id, AccountDTO accountDTO)
         {
             var account = Mapper.Map<Account>(accountDTO);
+            account.Id = id;
 
             _accountService.Update(account);
         }

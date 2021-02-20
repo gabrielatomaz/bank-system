@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/bank-system.csproj",
+        "${workspaceFolder}/bin/Debug/net5.0/BankSystem.Api.dll",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -19,7 +19,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/bank-system.csproj",
+        "${workspaceFolder}/bin/Debug/net5.0/BankSystem.Api.dll",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -32,7 +32,7 @@
       "args": [
         "watch",
         "run",
-        "${workspaceFolder}/bank-system.csproj",
+        "${workspaceFolder}/bin/Debug/net5.0/BankSystem.Api.dll",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],

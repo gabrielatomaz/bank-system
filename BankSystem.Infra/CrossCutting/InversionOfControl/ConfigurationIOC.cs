@@ -16,13 +16,13 @@ namespace BankSystem.Infra.CrossCutting.InversionOfControl
             builder.RegisterType<AccountApplicationService>().As<IAccountApplicationService>();
             builder.RegisterType<TransactionApplicationService>().As<ITransactionApplicationService>();
 
-            builder.RegisterType<UserService>().As<IUserService>();
-            builder.RegisterType<AccountService>().As<IAccountService>();
-            builder.RegisterType<TransactionService>().As<ITransactionService>();
-
             builder.RegisterType<UserRepository>().As<IUserRepository>();
             builder.RegisterType<AccountRepository>().As<IAccountRepository>();
             builder.RegisterType<TransactionRepository>().As<ITransactionRepository>();
+            
+            builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<AccountService>().As<IAccountService>();
+            builder.RegisterType<TransactionService>().As<ITransactionService>();
         }
     }
 } 

@@ -6,8 +6,8 @@ namespace BankSystem.Application.Interfaces
     public interface ITransactionApplicationService
     {
         void Add(TransactionDTO transactionDTO);
-        void Update(TransactionDTO transactionDTO);
-        void Remove(TransactionDTO transactionDTO);
+        void Update(int id, TransactionDTO transactionDTO);
+        void Remove(int id);
         TransactionDTO GetBy(int id);
         IEnumerable<TransactionDTO> GetAll();
     }

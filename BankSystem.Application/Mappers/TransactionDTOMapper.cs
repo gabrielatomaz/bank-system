@@ -9,7 +9,9 @@ namespace BankSystem.Application.Mappers
     {
         public TransactionDTOMapper() {
             CreateMap<Transaction, TransactionDTO>();
-            CreateMap<List<Transaction>, List<TransactionDTO>>();
+            CreateMap<IEnumerable<Transaction>, List<TransactionDTO>>();
+            CreateMap<Transaction, TransactionDTO>().ReverseMap();
+            CreateMap<IEnumerable<Transaction>, List<TransactionDTO>>().ReverseMap();
         }
     }
 }

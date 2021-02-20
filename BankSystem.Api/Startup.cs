@@ -1,8 +1,10 @@
 using Autofac;
 using BankSystem.Infra.CrossCutting.InversionOfControl;
+using Data.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +22,9 @@ namespace BankSystem.Api
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
+
+            var connection = Configuration["ConnectionStrings:BankSystemDatabase"];
+            services.AddDbContext<BankSystemContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
