@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankSystem.Infra.Migrations
 {
     [DbContext(typeof(BankSystemContext))]
-    [Migration("20210220001416_first")]
-    partial class first
+    [Migration("20210220174933_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,12 +37,13 @@ namespace BankSystem.Infra.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Accounts");
                 });
@@ -53,7 +54,7 @@ namespace BankSystem.Infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int>("AccountId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -95,22 +96,23 @@ namespace BankSystem.Infra.Migrations
             modelBuilder.Entity("BankSystem.Domain.Account", b =>
                 {
                     b.HasOne("BankSystem.Domain.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
+                        .WithOne()
+                        .HasForeignKey("BankSystem.Domain.Account", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("BankSystem.Domain.Transaction", b =>
                 {
-                    b.HasOne("BankSystem.Domain.Account", null)
-                        .WithMany("Trasactions")
-                        .HasForeignKey("AccountId");
-                });
+                    b.HasOne("BankSystem.Domain.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("BankSystem.Domain.Account", b =>
-                {
-                    b.Navigation("Trasactions");
+                    b.Navigation("Account");
                 });
 #pragma warning restore 612, 618
         }
