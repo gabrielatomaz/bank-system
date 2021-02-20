@@ -1,6 +1,6 @@
 <template>
         <button 
-            :class="['button', `is-${color}`, `is-${size}`, 'is-outlined', isFullWidth, isLoading]"
+            :class="['button', `is-${color}`, `is-${size}`, isOutlined, isFullWidth, isLoading]"
             @click="event"
             v-html="text"
         />
@@ -32,6 +32,10 @@ export default {
         size: {
             type: String,
         },
+        outlined: {
+            type: Boolean,
+            default: true,
+        }
     },
     computed: {
         isLoading() {
@@ -39,6 +43,9 @@ export default {
         },
         isFullWidth() {
             return this.fullWidth ? 'is-fullwidth' : ''
+        },
+        isOutlined() {
+            return this.outlined ? 'is-outlined' : ''
         }
     },
 }

@@ -3,9 +3,7 @@
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box">
-        <span :class="`title is-4 has-text-${color}`">
-          Transação
-        </span>
+        <span :class="`title is-4 has-text-${color}`"> Transação </span>
         <div class="field mt-5">
           <div class="field-body">
             <Input
@@ -16,6 +14,22 @@
               v-model="value"
             />
           </div>
+          <div class="filed-body mt-1">
+            <TextArea
+              v-model="description"
+              :color="color"
+              placeholder="Insira uma descrição!"
+            />
+          </div>
+          <div class="filed-body">
+            <Button
+              :text="transactionType.text"
+              :color="color"
+              :event="() => {}"
+              :outlined="false"
+              class="mt-1"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -24,13 +38,16 @@
 </template>
 
 <script>
-import { Input } from "./";
+import { Input, Button } from "./";
+import TextArea from "./TextArea";
 
 export default {
   name: "TransactionModal",
 
   components: {
     Input,
+    Button,
+    TextArea,
   },
 
   props: {
@@ -40,22 +57,22 @@ export default {
     transactionType: Object,
   },
 
+  data() {
+    return {
+      description: "",
+    };
+  },
+
   computed: {
-      color() {
-          const color = {
-              payment: 'danger',
-              deposit: 'success',
-              withdraw: 'link',
-          }
+    color() {
+      const color = {
+        payment: "danger",
+        deposit: "success",
+        withdraw: "link",
+      };
 
-          return color[this.transactionType.name]
-      },
-      
-      isWithdrawTransaction() {
-          const { name } = this.transactionType
-
-          return name === 'withdraw'
-      }
-  }
+      return color[this.transactionType.name];
+    },
+  },
 };
 </script>
