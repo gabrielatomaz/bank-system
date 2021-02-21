@@ -8,5 +8,10 @@ namespace BankSystem.Domain.Services
         private readonly IAccountRepository _accountRepository;
         public AccountService(IAccountRepository accountRepository) : base(accountRepository)
             => _accountRepository = accountRepository;
+
+        public Account GetByUserId(int userId)
+        {
+            return _accountRepository.GetByUserId(userId);
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using BankSystem.Application.DataTransferObjects;
 using BankSystem.Application.Interfaces;
+using BankSystem.Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankSystem.Api.Controllers
@@ -26,6 +27,11 @@ namespace BankSystem.Api.Controllers
             return Ok(_accountApplicationService.GetBy(id));
         }
 
+        [HttpGet("User/{userId}")]
+        public ActionResult<AccountDTO> GetByUserId(int userId)
+        {
+            return Ok(_accountApplicationService.GetByUserId(userId));
+        }
 
         [HttpPost]
         public ActionResult Post([FromBody] AccountDTO accountDTO)

@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using BankSystem.Domain.Entities;
 
 namespace BankSystem.Domain 

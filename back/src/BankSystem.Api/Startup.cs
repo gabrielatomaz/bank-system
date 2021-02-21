@@ -14,19 +14,21 @@ namespace BankSystem.Api
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
 
             var connection = Configuration["ConnectionStrings:BankSystemDatabase"];
-            services.AddDbContext<BankSystemContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
+            services.AddDbContext<BankSystemContext>(options => options.UseLazyLoadingProxies().UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BankSystem.Api", Version = "v1" });
@@ -35,8 +37,8 @@ namespace BankSystem.Api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
-        public void ConfigureContainer(ContainerBuilder builder) 
-            => builder.RegisterModule(new ModuleIOC());        
+        public void ConfigureContainer(ContainerBuilder builder)
+            => builder.RegisterModule(new ModuleIOC());
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -52,6 +54,8 @@ namespace BankSystem.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(option => option.AllowAnyOrigin());
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using BankSystem.Application.DataTransferObjects;
+using BankSystem.Domain;
 
 namespace BankSystem.Application.Interfaces
 {
@@ -10,5 +11,6 @@ namespace BankSystem.Application.Interfaces
         void Remove(int id);
         AccountDTO GetBy(int id);
         IEnumerable<AccountDTO> GetAll();
+        AccountDTO GetByUserId(int userId);
     }
 }

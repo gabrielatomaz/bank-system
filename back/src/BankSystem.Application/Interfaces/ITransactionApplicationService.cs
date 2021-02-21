@@ -10,5 +10,6 @@ namespace BankSystem.Application.Interfaces
         void Remove(int id);
         TransactionDTO GetBy(int id);
         IEnumerable<TransactionDTO> GetAll();
+        IEnumerable<TransactionDTO> GetByAccountId(int accountId);
     }
 }

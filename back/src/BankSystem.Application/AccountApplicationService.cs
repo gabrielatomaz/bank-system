@@ -34,6 +34,13 @@ namespace BankSystem.Application
         {
             var account = _accountService.GetBy(id);
 
+            return Mapper.Map<AccountDTO>(account);;
+        }
+
+        public AccountDTO GetByUserId(int userId)
+        {
+            var account = _accountService.GetByUserId(userId);
+
             return Mapper.Map<AccountDTO>(account);
         }
 

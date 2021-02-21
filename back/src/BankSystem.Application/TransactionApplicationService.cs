@@ -38,6 +38,13 @@ namespace BankSystem.Application
             return Mapper.Map<TransactionDTO>(transaction);
         }
 
+        public IEnumerable<TransactionDTO> GetByAccountId(int accountId)
+        {
+            var transactions = _transactionService.GetByAccountId(accountId);
+
+            return Mapper.Map<IEnumerable<TransactionDTO>>(transactions);
+        }
+
         public void Remove(int id)
         {
             var transaction = _transactionService.GetBy(id);

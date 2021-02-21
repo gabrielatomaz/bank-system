@@ -11,7 +11,7 @@ namespace BankSystem.Api.Controllers
     {
         private readonly ITransactionApplicationService _transactionApplicationService;
 
-        public TransactionController(ITransactionApplicationService transactionApplicationService) 
+        public TransactionController(ITransactionApplicationService transactionApplicationService)
             => _transactionApplicationService = transactionApplicationService;
 
         [HttpGet]
@@ -26,6 +26,11 @@ namespace BankSystem.Api.Controllers
             return Ok(_transactionApplicationService.GetBy(id));
         }
 
+        [HttpGet("Account/{accountId}")]
+        public ActionResult<IEnumerable<TransactionDTO>> GetByAccountId(int accountId)
+        {
+            return Ok(_transactionApplicationService.GetByAccountId(accountId));
+        }
 
         [HttpPost]
         public ActionResult Post([FromBody] TransactionDTO transactionDTO)

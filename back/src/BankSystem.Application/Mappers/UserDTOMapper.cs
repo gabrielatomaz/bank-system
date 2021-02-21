@@ -7,7 +7,8 @@ namespace BankSystem.Application.Mappers
 {
     public class UserDTOMapper : Profile
     {
-        public UserDTOMapper() {
+        public UserDTOMapper() 
+        {
             CreateMap<User, UserDTO>();
             CreateMap<IEnumerable<User>, List<UserDTO>>();
             CreateMap<User, UserDTO>().ReverseMap();
