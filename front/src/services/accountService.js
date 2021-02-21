@@ -14,6 +14,12 @@ export default {
         return data;
     },
 
+    async getByUserId(userId) {
+        const { data } = await bankSystemClient.get(`${BASE_URL}/User/${userId}`);
+
+        return data;
+    },
+
     async create(account) {
         const { data } = await bankSystemClient.post(BASE_URL, account);
 

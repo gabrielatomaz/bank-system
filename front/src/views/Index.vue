@@ -1,7 +1,7 @@
 <template>
   <div>
     <Banner :title="`Bem-vinde, ${user.name}!`" type="link">
-      Agência: {{ user.account.agenncy }}
+      Agência: {{ user.account.agency }}
       <br />
       Número: {{ user.account.number }}
     </Banner>
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="columns m-5">
-      <Table :header="header" :data="data" />
+      <Table :header="tableHeader" :data="user.account.transactions" />
     </div>
     <TransactionModal
       title="Sacar"
@@ -71,6 +71,7 @@
 
 <script>
 import { Banner, Level, Button, Table, TransactionModal } from "../components";
+import { userService, accountService, transactionService } from '../services';
 
 export default {
   name: "Index",
@@ -83,58 +84,21 @@ export default {
     TransactionModal,
   },
 
+  async mounted() {
+    const user = await userService.getBy(1);
+    let account = await accountService.getByUserId(user.id);
+    const transactions = await transactionService.getByAccountId(account.id);
+
+    account = { ...account, transactions: { ...transactions } };
+    this.user = { ...user, account };
+  },
+
   data() {
     return {
       transactionType: {},
       isTransactionModalOpen: false,
-      user: {
-        name: "Gabriela",
-        account: {
-          agenncy: "0001",
-          number: "9999999-9",
-          balance: 500.0,
-          transactions: [],
-        },
-      },
-      data: [
-        {
-          transactionType: "Deposito",
-          value: 400,
-          description: "Bla bla bla",
-          date: Date.now(),
-        },
-        {
-          transactionType: "Deposito",
-          value: 400,
-          description: "Bla bla bla",
-          date: Date.now(),
-        },
-        {
-          transactionType: "Deposito",
-          value: 400,
-          description: "Bla bla bla",
-          date: Date.now(),
-        },
-        {
-          transactionType: "Deposito",
-          value: 400,
-          description: "Bla bla bla",
-          date: Date.now(),
-        },
-        {
-          transactionType: "Deposito",
-          value: 400,
-          description: "Bla bla bla",
-          date: Date.now(),
-        },
-        {
-          transactionType: "Deposito",
-          value: 400,
-          description: "Bla bla bla",
-          date: Date.now(),
-        },
-      ],
-      header: [
+      user: {},
+      tableHeader: [
         {
           field: "transactionType",
           title: "Tipo da Transição",
