@@ -28,7 +28,7 @@ namespace BankSystem.Api.Controllers
         }
 
         [HttpGet("User/{userId}")]
-        public ActionResult<AccountDTO> GetByUserId(int userId)
+        public ActionResult<Account> GetByUserId(int userId)
         {
             return Ok(_accountApplicationService.GetByUserId(userId));
         }

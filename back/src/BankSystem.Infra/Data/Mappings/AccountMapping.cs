@@ -14,7 +14,7 @@ namespace BankSystem.Infra.Data.Mappings
                 .IsRequired();
 
             builder.HasOne(account => account.User)
-                .WithOne();
+                .WithOne(user => user.Account);
         }
     }
 }

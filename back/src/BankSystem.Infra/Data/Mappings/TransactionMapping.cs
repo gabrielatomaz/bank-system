@@ -19,8 +19,9 @@ namespace BankSystem.Infra.Data.Mappings
 			builder.Property(transaction => transaction.Description)
 				.IsRequired();
 
-			builder.HasOne(transaction => transaction.Account)	
-				.WithMany();
+			builder.HasOne(transaction => transaction.Account)
+				.WithMany(account => account.Transactions)
+				.HasForeignKey(transaction => transaction.AccountId);
 		}
 	}
 }

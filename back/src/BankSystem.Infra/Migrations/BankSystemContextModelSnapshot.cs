@@ -49,7 +49,7 @@ namespace BankSystem.Infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int>("AccountId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -91,7 +91,7 @@ namespace BankSystem.Infra.Migrations
             modelBuilder.Entity("BankSystem.Domain.Account", b =>
                 {
                     b.HasOne("BankSystem.Domain.User", "User")
-                        .WithOne()
+                        .WithOne("Account")
                         .HasForeignKey("BankSystem.Domain.Account", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -102,9 +102,21 @@ namespace BankSystem.Infra.Migrations
             modelBuilder.Entity("BankSystem.Domain.Transaction", b =>
                 {
                     b.HasOne("BankSystem.Domain.Account", "Account")
-                        .WithMany()
-                        .HasForeignKey("AccountId");
+                        .WithMany("Transactions")
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("BankSystem.Domain.Account", b =>
+                {
+                    b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("BankSystem.Domain.User", b =>
+                {
                     b.Navigation("Account");
                 });
 #pragma warning restore 612, 618

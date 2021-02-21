@@ -15,7 +15,7 @@ namespace BankSystem.Infra.Data.Repositories
 
         public IEnumerable<Transaction> GetByAccountId(int accountId)
         {
-            return _bankSystemContext.Transactions.Where(transaction => transaction.AccountId == accountId);
+            return _bankSystemContext.Transactions.Where(transaction => transaction.Account.Id == accountId);
         }
     }
 }

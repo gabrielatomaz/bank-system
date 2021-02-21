@@ -8,9 +8,8 @@ namespace BankSystem.Domain.Services
     {
         private readonly IBaseRepository<TEntity> _baseRepository;
 
-        public BaseService(IBaseRepository<TEntity> baseRepository) {
+        public BaseService(IBaseRepository<TEntity> baseRepository) =>
             _baseRepository = baseRepository;
-        }
 
         public void Add(TEntity entity)
         {

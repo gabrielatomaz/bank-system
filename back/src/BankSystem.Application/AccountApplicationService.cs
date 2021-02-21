@@ -34,14 +34,14 @@ namespace BankSystem.Application
         {
             var account = _accountService.GetBy(id);
 
-            return Mapper.Map<AccountDTO>(account);;
+            return Mapper.Map<AccountDTO>(account);
         }
 
-        public AccountDTO GetByUserId(int userId)
+        public Account GetByUserId(int userId)
         {
             var account = _accountService.GetByUserId(userId);
 
-            return Mapper.Map<AccountDTO>(account);
+            return account;
         }
 
         public void Remove(int id)
