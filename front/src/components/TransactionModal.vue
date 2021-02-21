@@ -65,13 +65,14 @@ export default {
 
   computed: {
     color() {
+      const { name } = this.transactionType;
       const color = {
         payment: "danger",
         deposit: "success",
         withdraw: "link",
       };
 
-      return color[this.transactionType.name];
+      return color[name];
     },
   },
 };
