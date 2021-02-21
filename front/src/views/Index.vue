@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Banner :title="`Bem-vinde, ${user.name}!`" type="link">
-      Agência: {{ user.account.agency }}
+    <Banner :title="`Bem-vinde, ${account.user.name}!`" type="link">
+      Agência: {{ account.agency }}
       <br />
-      Número: {{ user.account.number }}
+      Número: {{ account.number }}
     </Banner>
     <div class="columns mt-5">
       <div class="column is-one-quarter">
         <div class="box ml-5">
-          <Level :title="`R$ ${user.account.balance}`" heading="Saldo" />
+          <Level :title="`R$ ${account.balance}`" heading="Saldo" />
         </div>
       </div>
       <div class="column mr-5">
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="columns m-5">
-      <Table :header="tableHeader" :data="user.account.transactions" />
+      <Table :header="tableHeader" :data="account.transactions" />
     </div>
     <TransactionModal
       title="Sacar"
@@ -71,7 +71,7 @@
 
 <script>
 import { Banner, Level, Button, Table, TransactionModal } from "../components";
-import { userService, accountService, transactionService } from '../services';
+import { userService, accountService } from '../services';
 
 export default {
   name: "Index",
@@ -87,10 +87,8 @@ export default {
   async mounted() {
     const user = await userService.getBy(1);
     let account = await accountService.getByUserId(user.id);
-    const transactions = await transactionService.getByAccountId(account.id);
 
-    account = { ...account, transactions: { ...transactions } };
-    this.user = { ...user, account };
+    this.account = account;
   },
 
   data() {
