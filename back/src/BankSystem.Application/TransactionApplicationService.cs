@@ -22,13 +22,6 @@ namespace BankSystem.Application
             _transactionService.Add(transaction);
         }
 
-        public void Deposit(TransactionDTO transactionDTO)
-        {
-            var transaction = Mapper.Map<Transaction>(transactionDTO);
-
-            _transactionService.Deposit(transaction);
-        }
-
         public IEnumerable<TransactionDTO> GetAll()
         {
             var transactions = _transactionService.GetAll();
@@ -41,20 +34,6 @@ namespace BankSystem.Application
             var transaction = _transactionService.GetBy(id);
 
             return Mapper.Map<TransactionDTO>(transaction);
-        }
-
-        public IEnumerable<TransactionDTO> GetByAccountId(int accountId)
-        {
-            var transactions = _transactionService.GetByAccountId(accountId);
-
-            return Mapper.Map<IEnumerable<TransactionDTO>>(transactions);
-        }
-
-        public void Payment(TransactionDTO transactionDTO)
-        {
-            var transaction = Mapper.Map<Transaction>(transactionDTO);
-
-            _transactionService.Payment(transaction);
         }
 
         public void Remove(int id)
@@ -73,9 +52,26 @@ namespace BankSystem.Application
             _transactionService.Update(transaction);
         }
 
+        public void Payment(TransactionDTO transactionDTO)
+        {
+            var transaction = Mapper.Map<Transaction>(transactionDTO);
+            transaction.Date = DateTime.Now;
+
+            _transactionService.Payment(transaction);
+        }
+
+        public void Deposit(TransactionDTO transactionDTO)
+        {
+            var transaction = Mapper.Map<Transaction>(transactionDTO);
+            transaction.Date = DateTime.Now;
+
+            _transactionService.Deposit(transaction);
+        }
+
         public void Withdraw(TransactionDTO transactionDTO)
         {
             var transaction = Mapper.Map<Transaction>(transactionDTO);
+            transaction.Date = DateTime.Now;
             
             _transactionService.Withdraw(transaction);
         }

@@ -14,12 +14,6 @@ export default {
         return data;
     },
 
-    async getByAccountId(accountId) {
-        const { data } = await bankSystemClient.get(`${BASE_URL}/Account/${accountId}`);
-
-        return data;
-    },
-
     async create(transaction) {
         const { data } = await bankSystemClient.post(BASE_URL, transaction);
 

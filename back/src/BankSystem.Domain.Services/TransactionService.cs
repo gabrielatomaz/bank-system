@@ -16,19 +16,15 @@ namespace BankSystem.Domain.Services
             _accountRepository = accountRepository;
         }
 
-        public IEnumerable<Transaction> GetByAccountId(int accountId)
-        {
-            return _transactionRepository.GetByAccountId(accountId);
-        }
-
         public void Deposit(Transaction transaction)
         {
             transaction.TransactionType = TransactionType.Deposit;
 
             var account = _accountRepository.GetBy(transaction.AccountId);
-            account.Balance += transaction.Value;
-
-            transaction.Account = account;
+            
+            var value = transaction.Value;
+            CheckBalance(account, value);
+            account.EncreaseBalance(value);
 
             _transactionRepository.Add(transaction);
         }
@@ -40,9 +36,9 @@ namespace BankSystem.Domain.Services
 
             var account = _accountRepository.GetBy(transaction.AccountId);
             
-            if (!account.hasBalance(transaction.Value)) throw new InvalidOperationException("Sorry, but you don't have enough money in yout account!");
-
-            account.Balance -= transaction.Value;
+            var value = transaction.Value;
+            CheckBalance(account, value);
+            account.DecreaseBalance(value);
 
             transaction.Account = account;
 
@@ -54,14 +50,19 @@ namespace BankSystem.Domain.Services
             transaction.TransactionType = TransactionType.Withdraw;
 
             var account = _accountRepository.GetBy(transaction.AccountId);
-            
-            if (!account.hasBalance(transaction.Value)) throw new InvalidOperationException("Sorry, but you don't have enough money in yout account!");
 
-            account.Balance -= transaction.Value;
+            var value = transaction.Value;
+            CheckBalance(account, value);
+            account.DecreaseBalance(value);
 
             transaction.Account = account;
 
             _transactionRepository.Add(transaction);
+        }
+
+        private void CheckBalance(Account account, double value) 
+        {
+            if (!account.hasBalance(value)) throw new InvalidOperationException("Sorry, but you don't have enough money in your account!");
         }
     }
 }

@@ -25,7 +25,7 @@
             <Button
               :text="transactionType.text"
               :color="color"
-              :event="() => {}"
+              :event="emitTransaction"
               :outlined="false"
               :disabled="!enableButton()"
               class="mt-1"
@@ -52,34 +52,48 @@ export default {
   },
 
   props: {
-    title: String,
     close: Function,
-    value: Number,
     transactionType: Object,
   },
 
   data() {
     return {
-      description: "",
+      description: '',
+      value: null,
     };
   },
 
   computed: {
-    color() {
+    transactionTypeName() {
       const { name } = this.transactionType;
+
+      return name;
+    },
+
+    color() {
       const color = {
         payment: "danger",
         deposit: "success",
         withdraw: "link",
       };
 
-      return color[name];
+      return color[this.transactionTypeName];
     },
   },
 
   methods: {
     enableButton() {
-      return this.value > 0
+      return this.value > 0;
+    },
+
+    emitTransaction() {
+      const transaction = { 
+        description: this.description,
+        value: this.value,
+        type: this.transactionTypeName,
+      };
+
+      this.$emit('transaction', transaction);
     },
   },
 };

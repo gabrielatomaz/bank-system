@@ -16,5 +16,15 @@ namespace BankSystem.Domain
     {
       return Balance >= value;
     }
+
+    public void EncreaseBalance(double value) 
+    {
+      Balance += value;
+    }
+
+    public void DecreaseBalance(double value) 
+    {
+      Balance -= value;
+    }
   }
 }

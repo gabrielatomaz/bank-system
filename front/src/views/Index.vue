@@ -61,17 +61,17 @@
       <Table :header="tableHeader" :data="transactions" />
     </div>
     <TransactionModal
-      title="Sacar"
       v-if="isTransactionModalOpen"
       :close="closeransactionModal"
       :transactionType="transactionType"
+      @transaction="makeTransaction"
     />
   </div>
 </template>
 
 <script>
 import { Banner, Level, Button, Table, TransactionModal } from "../components";
-import { userService, accountService } from "../services";
+import { userService, accountService, transactionService } from "../services";
 
 export default {
   name: "Index",
@@ -85,21 +85,23 @@ export default {
   },
 
   async mounted() {
-    const user = await userService.getBy(1);
-    this.account = await accountService.getByUserId(user.id);
+    await this.loadDefaultUser();
+    await this.loadAccount();
   },
 
   computed: {
     userName() {
       const { user } = this.account;
 
-      return user ? user.name : "";
+      return user ? user.name : {};
     },
 
     transactions() {
       const { transactions } = this.account;
 
-      return transactions;
+      return transactions
+        ? transactions.sort((a, b) => new Date(a.date) - new Date(b.date))
+        : [];
     },
   },
 
@@ -108,6 +110,7 @@ export default {
       transactionType: {},
       isTransactionModalOpen: false,
       account: {},
+      user: {},
       tableHeader: [
         {
           field: "transactionType",
@@ -130,6 +133,14 @@ export default {
   },
 
   methods: {
+    async loadDefaultUser() {
+      this.user = await userService.getBy(1);
+    },
+
+    async loadAccount() {
+      this.account = await accountService.getByUserId(this.user.id);
+    },
+
     showTransactionModal({ name, text }) {
       this.transactionType = {
         name,
@@ -141,6 +152,20 @@ export default {
 
     closeransactionModal() {
       this.isTransactionModalOpen = false;
+    },
+
+    async makeTransaction(transaction) {
+      const { id: accountId } = this.account;
+      const { type, ...rest } = transaction;
+
+      try {
+        await transactionService[type]({ ...rest, accountId });
+        
+        this.closeransactionModal();
+        this.loadAccount();
+      } catch (ex) {
+        console.log(ex);
+      }
     },
   },
 };

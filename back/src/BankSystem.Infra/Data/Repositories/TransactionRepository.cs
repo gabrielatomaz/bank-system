@@ -12,10 +12,5 @@ namespace BankSystem.Infra.Data.Repositories
         
         public TransactionRepository(BankSystemContext bankSystemContext) : base(bankSystemContext)
             => _bankSystemContext = bankSystemContext;
-
-        public IEnumerable<Transaction> GetByAccountId(int accountId)
-        {
-            return _bankSystemContext.Transactions.Where(transaction => transaction.Account.Id == accountId);
-        }
     }
 }
