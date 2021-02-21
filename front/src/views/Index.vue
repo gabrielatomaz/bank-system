@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Banner :title="`Bem-vinde, ${account.user.name}!`" type="link">
+    <Banner :title="`Bem-vinde, ${userName}!`" type="link">
       Agência: {{ account.agency }}
       <br />
       Número: {{ account.number }}
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="columns m-5">
-      <Table :header="tableHeader" :data="account.transactions" />
+      <Table :header="tableHeader" :data="transactions" />
     </div>
     <TransactionModal
       title="Sacar"
@@ -71,7 +71,7 @@
 
 <script>
 import { Banner, Level, Button, Table, TransactionModal } from "../components";
-import { userService, accountService } from '../services';
+import { userService, accountService } from "../services";
 
 export default {
   name: "Index",
@@ -86,16 +86,28 @@ export default {
 
   async mounted() {
     const user = await userService.getBy(1);
-    let account = await accountService.getByUserId(user.id);
+    this.account = await accountService.getByUserId(user.id);
+  },
 
-    this.account = account;
+  computed: {
+    userName() {
+      const { user } = this.account;
+
+      return user ? user.name : "";
+    },
+
+    transactions() {
+      const { transactions } = this.account;
+
+      return transactions;
+    },
   },
 
   data() {
     return {
       transactionType: {},
       isTransactionModalOpen: false,
-      user: {},
+      account: {},
       tableHeader: [
         {
           field: "transactionType",

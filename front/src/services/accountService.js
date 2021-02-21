@@ -1,4 +1,5 @@
-import bankSystemClient from '../clients/bankSystemClient'; 
+import bankSystemClient from '../clients/bankSystemClient';
+import transactionMapper from './mappers/transactionMapper';
 
 const BASE_URL = 'Account';
 export default {
@@ -16,6 +17,11 @@ export default {
 
     async getByUserId(userId) {
         const { data } = await bankSystemClient.get(`${BASE_URL}/User/${userId}`);
+
+        data.transactions = data.transactions
+            .map(({ transactionType, ...rest }) =>
+                ({ ...rest, transactionType: transactionMapper[transactionType] })
+            );
 
         return data;
     },
