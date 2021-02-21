@@ -42,6 +42,39 @@ namespace BankSystem.Api.Controllers
             return Ok("Transaction created with success!");
         }
 
+        [HttpPost("Deposit")]
+        public ActionResult Deposit([FromBody] TransactionDTO transactionDTO)
+        {
+            if (transactionDTO == null) return NotFound();
+            if (transactionDTO.Value < 0) return Content("Value must be greater than zero!");
+
+            _transactionApplicationService.Deposit(transactionDTO);
+
+            return Ok("Transaction Deposit was a success!");
+        }
+
+        [HttpPost("Payment")]
+        public ActionResult Payment([FromBody] TransactionDTO transactionDTO)
+        {
+            if (transactionDTO == null) return NotFound();
+            if (transactionDTO.Value < 0) return Content("Value must be greater than zero!");
+
+            _transactionApplicationService.Payment(transactionDTO);
+
+            return Ok("Transaction Deposit was a success!");
+        }
+
+        [HttpPost("Withdraw")]
+        public ActionResult Withdraw([FromBody] TransactionDTO transactionDTO)
+        {
+            if (transactionDTO == null) return NotFound();
+            if (transactionDTO.Value < 0) return Content("Value must be greater than zero!");
+
+            _transactionApplicationService.Withdraw(transactionDTO);
+
+            return Ok("Transaction Deposit was a success!");
+        }
+
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] TransactionDTO transactionDTO)
         {

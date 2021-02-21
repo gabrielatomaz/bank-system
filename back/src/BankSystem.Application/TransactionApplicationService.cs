@@ -12,16 +12,21 @@ namespace BankSystem.Application
     public class TransactionApplicationService : ITransactionApplicationService
     {
         private readonly ITransactionService _transactionService;
-        public TransactionApplicationService(ITransactionService transactionService)
-        {
+        public TransactionApplicationService(ITransactionService transactionService) =>
             _transactionService = transactionService;
-        }
 
         public void Add(TransactionDTO transactionDTO)
         {
             var transaction = Mapper.Map<Transaction>(transactionDTO);
 
             _transactionService.Add(transaction);
+        }
+
+        public void Deposit(TransactionDTO transactionDTO)
+        {
+            var transaction = Mapper.Map<Transaction>(transactionDTO);
+
+            _transactionService.Deposit(transaction);
         }
 
         public IEnumerable<TransactionDTO> GetAll()
@@ -45,6 +50,13 @@ namespace BankSystem.Application
             return Mapper.Map<IEnumerable<TransactionDTO>>(transactions);
         }
 
+        public void Payment(TransactionDTO transactionDTO)
+        {
+            var transaction = Mapper.Map<Transaction>(transactionDTO);
+
+            _transactionService.Payment(transaction);
+        }
+
         public void Remove(int id)
         {
             var transaction = _transactionService.GetBy(id);
@@ -59,6 +71,13 @@ namespace BankSystem.Application
             transaction.Date = DateTime.Now;
 
             _transactionService.Update(transaction);
+        }
+
+        public void Withdraw(TransactionDTO transactionDTO)
+        {
+            var transaction = Mapper.Map<Transaction>(transactionDTO);
+            
+            _transactionService.Withdraw(transaction);
         }
     }
 }
