@@ -26,6 +26,24 @@ export default {
         return data;
     },
 
+    async deposit(transaction) {
+        const { data } = await bankSystemClient.post(`${BASE_URL}/Deposit`, transaction);
+
+        return data;
+    },
+
+    async withdraw(transaction) {
+        const { data } = await bankSystemClient.post(`${BASE_URL}/Withdraw`, transaction);
+
+        return data;
+    },
+
+    async payment(transaction) {
+        const { data } = await bankSystemClient.post(`${BASE_URL}/Payment`, transaction);
+
+        return data;
+    },
+
     async edit(id, transaction) {
         const { data } = await bankSystemClient.put(`${BASE_URL}/${id}`, transaction);
 

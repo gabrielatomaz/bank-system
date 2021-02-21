@@ -27,6 +27,7 @@
               :color="color"
               :event="() => {}"
               :outlined="false"
+              :disabled="!enableButton()"
               class="mt-1"
             />
           </div>
@@ -73,6 +74,12 @@ export default {
       };
 
       return color[name];
+    },
+  },
+
+  methods: {
+    enableButton() {
+      return this.value > 0
     },
   },
 };
