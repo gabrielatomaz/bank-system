@@ -24,7 +24,7 @@ namespace BankSystem.Infra.Data.Context
         var builder = new DbContextOptionsBuilder<BankSystemContext>();
         var connectionString = _configuration.GetConnectionString("BankSystemDatabase");
 
-        builder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        builder.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
         return new BankSystemContext(builder.Options);
     }

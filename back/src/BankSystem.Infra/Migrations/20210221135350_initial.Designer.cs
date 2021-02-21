@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankSystem.Infra.Migrations
 {
     [DbContext(typeof(BankSystemContext))]
-    [Migration("20210220174933_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210221135350_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,14 +25,11 @@ namespace BankSystem.Infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Agency")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int>("Agency")
+                        .HasColumnType("int");
 
                     b.Property<double>("Balance")
                         .HasColumnType("double");
-
-                    b.Property<int>("Digit")
-                        .HasColumnType("int");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
@@ -54,7 +51,7 @@ namespace BankSystem.Infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("AccountId")
+                    b.Property<int?>("AccountId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -108,9 +105,7 @@ namespace BankSystem.Infra.Migrations
                 {
                     b.HasOne("BankSystem.Domain.Account", "Account")
                         .WithMany()
-                        .HasForeignKey("AccountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AccountId");
 
                     b.Navigation("Account");
                 });

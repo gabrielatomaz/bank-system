@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankSystem.Infra.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,9 +27,8 @@ namespace BankSystem.Infra.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Agency = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    Agency = table.Column<int>(type: "int", nullable: false),
                     Number = table.Column<int>(type: "int", nullable: false),
-                    Digit = table.Column<int>(type: "int", nullable: false),
                     Balance = table.Column<double>(type: "double", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -54,7 +53,7 @@ namespace BankSystem.Infra.Migrations
                     Description = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     TransactionType = table.Column<int>(type: "int", nullable: false),
-                    AccountId = table.Column<int>(type: "int", nullable: false)
+                    AccountId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -64,7 +63,7 @@ namespace BankSystem.Infra.Migrations
                         column: x => x.AccountId,
                         principalTable: "Accounts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
