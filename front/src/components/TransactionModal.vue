@@ -3,6 +3,11 @@
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box">
+        <ErrorMessage 
+          :message="errorMessage"
+          v-if="showErrorMessage" 
+          @close="closeErrorMessage"
+        />
         <span :class="`title is-4 has-text-${color}`"> Transação </span>
         <div class="field mt-5">
           <div class="field-body">
@@ -39,7 +44,7 @@
 </template>
 
 <script>
-import { Input, Button } from "./";
+import { Input, Button, ErrorMessage } from "./";
 import TextArea from "./TextArea";
 
 export default {
@@ -49,18 +54,27 @@ export default {
     Input,
     Button,
     TextArea,
+    ErrorMessage,
   },
 
   props: {
     close: Function,
     transactionType: Object,
+    errorMessage: String,
   },
 
   data() {
     return {
       description: '',
       value: null,
+      showErrorMessage: false,
     };
+  },
+
+  watch: {
+    errorMessage() {
+      this.showErrorMessage = true;
+    }
   },
 
   computed: {
@@ -94,6 +108,10 @@ export default {
       };
 
       this.$emit('transaction', transaction);
+    },
+
+    closeErrorMessage() {
+      this.showErrorMessage = false;
     },
   },
 };

@@ -64,6 +64,7 @@
       v-if="isTransactionModalOpen"
       :close="closeransactionModal"
       :transactionType="transactionType"
+      :errorMessage="errorMessage"
       @transaction="makeTransaction"
     />
   </div>
@@ -85,8 +86,20 @@ export default {
   },
 
   async mounted() {
+    const loader = this.$loading.show({
+      container: this.fullPage ? null : this.$refs.formContainer,
+      canCancel: true,
+      onCancel: this.onCancel,
+      opacity: 1,
+      backgroundColor: "#acacace6",
+    });
+  
     await this.loadDefaultUser();
     await this.loadAccount();
+
+    setTimeout(() => {
+      loader.hide();
+    }, 500);
   },
 
   computed: {
@@ -129,6 +142,7 @@ export default {
           title: "Data",
         },
       ],
+      errorMessage: "",
     };
   },
 
@@ -158,13 +172,17 @@ export default {
       const { id: accountId } = this.account;
       const { type, ...rest } = transaction;
 
+      this.errorMessage = "";
       try {
         await transactionService[type]({ ...rest, accountId });
-        
+
         this.closeransactionModal();
         this.loadAccount();
-      } catch (ex) {
-        console.log(ex);
+      } catch (exception) {
+        const {
+          response: { data },
+        } = exception;
+        this.errorMessage = data;
       }
     },
   },

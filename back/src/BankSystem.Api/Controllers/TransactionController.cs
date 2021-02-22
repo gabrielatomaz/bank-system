@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using BankSystem.Application.DataTransferObjects;
 using BankSystem.Application.Interfaces;
@@ -53,7 +54,14 @@ namespace BankSystem.Api.Controllers
             if (transactionDTO == null) return NotFound();
             if (transactionDTO.Value < 0) return Content("Value must be greater than zero!");
 
-            _transactionApplicationService.Payment(transactionDTO);
+            try 
+            {
+                _transactionApplicationService.Payment(transactionDTO);
+            } 
+            catch (Exception exception) 
+            {
+                return BadRequest(exception.Message);
+            }
 
             return Ok("Transaction Deposit was a success!");
         }
@@ -64,7 +72,14 @@ namespace BankSystem.Api.Controllers
             if (transactionDTO == null) return NotFound();
             if (transactionDTO.Value < 0) return Content("Value must be greater than zero!");
 
-            _transactionApplicationService.Withdraw(transactionDTO);
+            try 
+            {
+                _transactionApplicationService.Withdraw(transactionDTO);
+            } 
+            catch (Exception exception) 
+            {
+                return BadRequest(exception.Message);
+            }
 
             return Ok("Transaction Deposit was a success!");
         }
