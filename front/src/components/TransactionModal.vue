@@ -33,6 +33,7 @@
               :event="emitTransaction"
               :outlined="false"
               :disabled="!enableButton()"
+              :loading="loading"
               class="mt-1"
             />
           </div>
@@ -61,6 +62,7 @@ export default {
     close: Function,
     transactionType: Object,
     errorMessage: String,
+    loading: Boolean,
   },
 
   data() {

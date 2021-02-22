@@ -65,6 +65,7 @@
       :close="closeransactionModal"
       :transactionType="transactionType"
       :errorMessage="errorMessage"
+      :loading="buttonloading"
       @transaction="makeTransaction"
     />
   </div>
@@ -124,6 +125,7 @@ export default {
       isTransactionModalOpen: false,
       account: {},
       user: {},
+      buttonloading: false,
       tableHeader: [
         {
           field: "transactionType",
@@ -169,6 +171,7 @@ export default {
     },
 
     async makeTransaction(transaction) {
+      this.buttonloading = true;
       const { id: accountId } = this.account;
       const { type, ...rest } = transaction;
 
@@ -184,6 +187,7 @@ export default {
         } = exception;
         this.errorMessage = data;
       }
+      this.buttonloading = false;
     },
   },
 };
