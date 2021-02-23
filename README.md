@@ -77,6 +77,7 @@ A arquitetura do projeto é orientada a domínio, em inglês [Domain-Driven Desi
 A aplicação frontend é uma simples [Single-Page Application](https://blog.schoolofnet.com/o-que-e-uma-spa-single-page-application/) (SPA).
 * /clients
 * /components 
+* /services
 * /views
 
 ## Tecnologias
