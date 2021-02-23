@@ -61,7 +61,7 @@ $ dotnet test
 ## Arquitetura
 
 ### Backend
-A arquitetura do projeto é orientada a domínio, em inglês [Domain-Driven Design](https://www.devmedia.com.br/ddd-domain-driven-design-com-net/14416) (DDD)
+A arquitetura do projeto é orientada a domínio, em inglês [Domain-Driven Design](https://www.devmedia.com.br/ddd-domain-driven-design-com-net/14416) (DDD).
 * **BankSystem.Api** -> Controllers
 * **BankSystem.Application** -> DTOs, Mappers, ApplicationServices
 * **BankSystem.Domain** -> Entities

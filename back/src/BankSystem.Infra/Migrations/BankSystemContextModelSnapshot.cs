@@ -86,16 +86,16 @@ namespace BankSystem.Infra.Migrations
                         {
                             Id = 1,
                             AccountId = 1,
-                            Date = new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(4080),
+                            Date = new DateTime(2021, 2, 23, 15, 34, 14, 867, DateTimeKind.Local).AddTicks(4040),
                             Description = "Description Deposit",
                             TransactionType = 2,
-                            Value = 1000.0
+                            Value = 1700.0
                         },
                         new
                         {
                             Id = 2,
                             AccountId = 1,
-                            Date = new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(5259),
+                            Date = new DateTime(2021, 2, 23, 15, 34, 14, 867, DateTimeKind.Local).AddTicks(5261),
                             Description = "Description Payment",
                             TransactionType = 0,
                             Value = 100.0
@@ -104,9 +104,9 @@ namespace BankSystem.Infra.Migrations
                         {
                             Id = 3,
                             AccountId = 1,
-                            Date = new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(5268),
-                            Description = "Description Deposit",
-                            TransactionType = 2,
+                            Date = new DateTime(2021, 2, 23, 15, 34, 14, 867, DateTimeKind.Local).AddTicks(5271),
+                            Description = "Description Withdraw",
+                            TransactionType = 1,
                             Value = 100.0
                         });
                 });

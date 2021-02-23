@@ -79,17 +79,17 @@ namespace BankSystem.Infra.Migrations
             migrationBuilder.InsertData(
                 table: "Transactions",
                 columns: new[] { "Id", "AccountId", "Date", "Description", "TransactionType", "Value" },
-                values: new object[] { 1, 1, new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(4080), "Description Deposit", 2, 1000.0 });
+                values: new object[] { 1, 1, new DateTime(2021, 2, 23, 15, 34, 14, 867, DateTimeKind.Local).AddTicks(4040), "Description Deposit", 2, 1700.0 });
 
             migrationBuilder.InsertData(
                 table: "Transactions",
                 columns: new[] { "Id", "AccountId", "Date", "Description", "TransactionType", "Value" },
-                values: new object[] { 2, 1, new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(5259), "Description Payment", 0, 100.0 });
+                values: new object[] { 2, 1, new DateTime(2021, 2, 23, 15, 34, 14, 867, DateTimeKind.Local).AddTicks(5261), "Description Payment", 0, 100.0 });
 
             migrationBuilder.InsertData(
                 table: "Transactions",
                 columns: new[] { "Id", "AccountId", "Date", "Description", "TransactionType", "Value" },
-                values: new object[] { 3, 1, new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(5268), "Description Deposit", 2, 100.0 });
+                values: new object[] { 3, 1, new DateTime(2021, 2, 23, 15, 34, 14, 867, DateTimeKind.Local).AddTicks(5271), "Description Withdraw", 1, 100.0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_UserId",

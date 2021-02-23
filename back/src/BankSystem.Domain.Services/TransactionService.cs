@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using BankSystem.Domain.Core.Interfaces.Repositories;
 using BankSystem.Domain.Core.Interfaces.Services;
 

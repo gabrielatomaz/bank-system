@@ -29,21 +29,21 @@ namespace BankSystem.Api.Tests.Controllers
         }
 
         [Fact]
-        public async Task Get_AllUsers()
+        public async Task Get_AllTransactions()
         {
-            var users = await _client.GetAsync("/Transaction");
+            var transactions = await _client.GetAsync("/Transaction");
             var data = JsonConvert.DeserializeObject<List<Transaction>>
             (
-                (await users.Content.ReadAsStringAsync())
+                (await transactions.Content.ReadAsStringAsync())
             );
 
-            Assert.Equal(HttpStatusCode.OK, users.StatusCode);
+            Assert.Equal(HttpStatusCode.OK, transactions.StatusCode);
 
             var expectedFirstTransaction = new TransactionDTO() 
             {
                 Value = 1000,
-                TransactionType = TransactionType.Withdraw,
-                Description = "Test Description Withdraw",
+                TransactionType = TransactionType.Deposit,
+                Description = "Description Deposit",
                 AccountId = 1
             };
             
@@ -69,8 +69,8 @@ namespace BankSystem.Api.Tests.Controllers
             var expectedTransaction = new TransactionDTO() 
             {
                 Value = 1000,
-                TransactionType = TransactionType.Withdraw,
-                Description = "Test Description Withdraw",
+                TransactionType = TransactionType.Deposit,
+                Description = "Description Deposit",
                 AccountId = 1
             };
             

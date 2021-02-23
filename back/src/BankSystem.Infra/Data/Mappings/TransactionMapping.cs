@@ -39,7 +39,7 @@ namespace BankSystem.Infra.Data.Mappings
                     Date = DateTime.Now,
                     Description = "Description Deposit",
                     TransactionType = TransactionType.Deposit,
-                    Value = 1000
+                    Value = 1700
                 },
 				new Transaction 
 				{
@@ -55,8 +55,8 @@ namespace BankSystem.Infra.Data.Mappings
 					Id = 3,
                     AccountId = 1,
                     Date = DateTime.Now,
-                    Description = "Description Deposit",
-                    TransactionType = TransactionType.Deposit,
+                    Description = "Description Withdraw",
+                    TransactionType = TransactionType.Withdraw,
                     Value = 100
                 }
             };

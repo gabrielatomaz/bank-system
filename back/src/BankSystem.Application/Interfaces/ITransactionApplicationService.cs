@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using BankSystem.Application.DataTransferObjects;
-using BankSystem.Domain;
 
 namespace BankSystem.Application.Interfaces
 {

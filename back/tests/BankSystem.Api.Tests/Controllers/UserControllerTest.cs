@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using BankSystem.Application.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -38,7 +37,7 @@ namespace BankSystem.Api.Tests.Controllers
 
             Assert.Equal(HttpStatusCode.OK, users.StatusCode);
 
-            var expected = "Name";
+            var expected = "Gabriela";
             Assert.Equal(expected, data.FirstOrDefault().Name);
         }
 
@@ -54,7 +53,7 @@ namespace BankSystem.Api.Tests.Controllers
 
             Assert.Equal(HttpStatusCode.OK, user.StatusCode);
 
-            var expected = "Name";
+            var expected = "Gabriela";
             Assert.Equal(expected, data.Name);
         }
 

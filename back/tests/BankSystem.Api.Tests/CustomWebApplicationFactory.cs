@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using BankSystem.Api.Tests.Helpers;
 using Data.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -25,7 +24,7 @@ namespace BankSystem.Api.Tests
 
                 services.AddDbContext<BankSystemContext>(options =>
                 {
-                    options.UseInMemoryDatabase("InMemoryDbForTesting");
+                    options.UseInMemoryDatabase("InMemoryDbBankSystem");
                 });
 
                 var sp = services.BuildServiceProvider();
@@ -39,16 +38,6 @@ namespace BankSystem.Api.Tests
 
                     db.Database.EnsureDeleted();
                     db.Database.EnsureCreated();
-
-                    try
-                    {
-                        Utilities.InitializeDbForTests(db);
-                    }
-                    catch (Exception ex)
-                    {
-                        logger.LogError(ex, "An error occurred seeding the " +
-                            "database with test messages. Error: {Message}", ex.Message);
-                    }
                 }
             });
         }
