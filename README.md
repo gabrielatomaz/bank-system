@@ -30,7 +30,7 @@ Informe a string de conexão do banco de dados em **appsettings.json**.
 
 ### Backend
 ```sh
-$ cd back/src/BankSystem.Api
+$ cd bank-system/back/src/BankSystem.Api
 $ dotnet restore
 $ dotnet run
 ```
