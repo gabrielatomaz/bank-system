@@ -69,6 +69,10 @@ A arquitetura do projeto é orientada a domínio, em inglês [Domain-Driven Desi
 * **BankSystem.Services** -> Services
 * **BankSystem.Infra** -> CrossCutting -> IOC, Migrations, Data -> Context, Mapping e Repositories
 
+**Database**
+
+![alt text](https://i.imgur.com/9dLex2Kl.png)
+
 ## Frontend
 A aplicação frontend é uma simples [Single-Page Application](https://blog.schoolofnet.com/o-que-e-uma-spa-single-page-application/) (SPA).
 * /clients
