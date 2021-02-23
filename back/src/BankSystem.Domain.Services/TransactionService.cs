@@ -23,7 +23,6 @@ namespace BankSystem.Domain.Services
             var account = _accountRepository.GetBy(transaction.AccountId);
             
             var value = transaction.Value;
-            CheckBalance(account, value);
             account.EncreaseBalance(value);
 
             _transactionRepository.Add(transaction);

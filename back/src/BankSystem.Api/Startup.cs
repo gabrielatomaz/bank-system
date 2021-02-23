@@ -3,6 +3,7 @@ using BankSystem.Infra.CrossCutting.InversionOfControl;
 using Data.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -62,7 +63,9 @@ namespace BankSystem.Api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BankSystem.Api v1"));
             }
 
+            #if !DEBUG
             app.UseHttpsRedirection();
+            #endif
 
             app.UseRouting();
 

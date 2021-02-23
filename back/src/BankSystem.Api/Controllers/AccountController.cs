@@ -24,13 +24,19 @@ namespace BankSystem.Api.Controllers
         [HttpGet("{id}")]
         public ActionResult<AccountDTO> Get(int id)
         {
-            return Ok(_accountApplicationService.GetBy(id));
+            var account = _accountApplicationService.GetBy(id);
+
+            if (account == null) return NotFound();
+            return Ok(account);
         }
 
         [HttpGet("User/{userId}")]
         public ActionResult<Account> GetByUserId(int userId)
         {
-            return Ok(_accountApplicationService.GetByUserId(userId));
+            var account = _accountApplicationService.GetByUserId(userId);
+
+            if (account == null) return NotFound();
+            return Ok(account);
         }
 
         [HttpPost]
@@ -50,7 +56,7 @@ namespace BankSystem.Api.Controllers
 
             _accountApplicationService.Update(id, accountDTO);
 
-            return Ok("Account udpated with success!");
+            return Ok("Account updated with success!");
         }
 
         [HttpDelete("{id}")]

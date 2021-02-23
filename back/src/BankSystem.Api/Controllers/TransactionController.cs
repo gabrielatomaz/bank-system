@@ -24,7 +24,10 @@ namespace BankSystem.Api.Controllers
         [HttpGet("{id}")]
         public ActionResult<TransactionDTO> Get(int id)
         {
-            return Ok(_transactionApplicationService.GetBy(id));
+            var transaction = _transactionApplicationService.GetBy(id);
+            
+            if (transaction == null) return NotFound();
+            return Ok(transaction);
         }
 
         [HttpPost]
@@ -63,7 +66,7 @@ namespace BankSystem.Api.Controllers
                 return BadRequest(exception.Message);
             }
 
-            return Ok("Transaction Deposit was a success!");
+            return Ok("Transaction Payment was a success!");
         }
 
         [HttpPost("Withdraw")]
@@ -81,7 +84,7 @@ namespace BankSystem.Api.Controllers
                 return BadRequest(exception.Message);
             }
 
-            return Ok("Transaction Deposit was a success!");
+            return Ok("Transaction Withdraw was a success!");
         }
 
         [HttpPut("{id}")]

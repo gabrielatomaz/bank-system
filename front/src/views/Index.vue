@@ -114,7 +114,7 @@ export default {
       const { transactions } = this.account;
 
       return transactions
-        ? transactions.sort((a, b) => new Date(a.date) - new Date(b.date))
+        ? transactions.sort((a, b) =>  new Date(b.date) - new Date(a.date))
         : [];
     },
   },

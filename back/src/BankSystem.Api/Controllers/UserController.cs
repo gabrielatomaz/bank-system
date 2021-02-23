@@ -23,7 +23,10 @@ namespace BankSystem.Api.Controllers
         [HttpGet("{id}")]
         public ActionResult<UserDTO> Get(int id)
         {
-            return Ok(_userApplicationService.GetBy(id));
+            var user = _userApplicationService.GetBy(id);
+            
+            if (user == null) return NotFound();
+            return Ok(user);
         }
 
 
@@ -44,7 +47,7 @@ namespace BankSystem.Api.Controllers
 
             _userApplicationService.Update(id, userDTO);
 
-            return Ok("User udpated with success!");
+            return Ok("User updated with success!");
         }
 
         [HttpDelete("{id}")]
