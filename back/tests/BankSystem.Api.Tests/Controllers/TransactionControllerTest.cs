@@ -41,7 +41,7 @@ namespace BankSystem.Api.Tests.Controllers
 
             var expectedFirstTransaction = new TransactionDTO() 
             {
-                Value = 1000,
+                Value = 1700,
                 TransactionType = TransactionType.Deposit,
                 Description = "Description Deposit",
                 AccountId = 1
@@ -68,7 +68,7 @@ namespace BankSystem.Api.Tests.Controllers
 
             var expectedTransaction = new TransactionDTO() 
             {
-                Value = 1000,
+                Value = 1700,
                 TransactionType = TransactionType.Deposit,
                 Description = "Description Deposit",
                 AccountId = 1
