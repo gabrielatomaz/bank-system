@@ -41,6 +41,16 @@ namespace BankSystem.Infra.Migrations
                         .IsUnique();
 
                     b.ToTable("Accounts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Agency = 1111,
+                            Balance = 1500.0,
+                            Number = 99999999,
+                            UserId = 1
+                        });
                 });
 
             modelBuilder.Entity("BankSystem.Domain.Transaction", b =>
@@ -70,6 +80,35 @@ namespace BankSystem.Infra.Migrations
                     b.HasIndex("AccountId");
 
                     b.ToTable("Transactions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccountId = 1,
+                            Date = new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(4080),
+                            Description = "Description Deposit",
+                            TransactionType = 2,
+                            Value = 1000.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccountId = 1,
+                            Date = new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(5259),
+                            Description = "Description Payment",
+                            TransactionType = 0,
+                            Value = 100.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccountId = 1,
+                            Date = new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(5268),
+                            Description = "Description Deposit",
+                            TransactionType = 2,
+                            Value = 100.0
+                        });
                 });
 
             modelBuilder.Entity("BankSystem.Domain.User", b =>
@@ -86,6 +125,13 @@ namespace BankSystem.Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Gabriela"
+                        });
                 });
 
             modelBuilder.Entity("BankSystem.Domain.Account", b =>

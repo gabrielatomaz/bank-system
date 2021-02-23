@@ -15,6 +15,20 @@ namespace BankSystem.Infra.Data.Mappings
 
             builder.HasOne(account => account.User)
                 .WithOne(user => user.Account);
+
+            builder.HasData(Seed());
+        }
+
+        public Account Seed()
+        {
+            return new Account
+            {
+                Id = 1,
+                Agency = 1111,
+                Number = 99999999,
+                Balance = 1500,
+                UserId = 1
+            };
         }
     }
 }

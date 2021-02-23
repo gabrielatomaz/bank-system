@@ -66,6 +66,31 @@ namespace BankSystem.Infra.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 1, "Gabriela" });
+
+            migrationBuilder.InsertData(
+                table: "Accounts",
+                columns: new[] { "Id", "Agency", "Balance", "Number", "UserId" },
+                values: new object[] { 1, 1111, 1500.0, 99999999, 1 });
+
+            migrationBuilder.InsertData(
+                table: "Transactions",
+                columns: new[] { "Id", "AccountId", "Date", "Description", "TransactionType", "Value" },
+                values: new object[] { 1, 1, new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(4080), "Description Deposit", 2, 1000.0 });
+
+            migrationBuilder.InsertData(
+                table: "Transactions",
+                columns: new[] { "Id", "AccountId", "Date", "Description", "TransactionType", "Value" },
+                values: new object[] { 2, 1, new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(5259), "Description Payment", 0, 100.0 });
+
+            migrationBuilder.InsertData(
+                table: "Transactions",
+                columns: new[] { "Id", "AccountId", "Date", "Description", "TransactionType", "Value" },
+                values: new object[] { 3, 1, new DateTime(2021, 2, 22, 21, 27, 50, 803, DateTimeKind.Local).AddTicks(5268), "Description Deposit", 2, 100.0 });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_UserId",
                 table: "Accounts",
