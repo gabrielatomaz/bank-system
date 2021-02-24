@@ -14,40 +14,13 @@
       <div class="column mr-5">
         <div class="box">
           <div class="columns">
-            <div class="column">
+            <div class="column" v-for="(button, index) in buttons" :key="index">
               <Button
-                text="Sacar"
-                color="link"
+                :text="button.text"
+                :color="button.color"
                 :event="
                   () => {
-                    showTransactionModal({ name: 'withdraw', text: 'Sacar' });
-                  }
-                "
-                size="medium"
-              />
-            </div>
-            <div class="column">
-              <Button
-                text="Depositar"
-                color="success"
-                :event="
-                  () => {
-                    showTransactionModal({
-                      name: 'deposit',
-                      text: 'Depositar',
-                    });
-                  }
-                "
-                size="medium"
-              />
-            </div>
-            <div class="column">
-              <Button
-                text="Pagar"
-                color="danger"
-                :event="
-                  () => {
-                    showTransactionModal({ name: 'payment', text: 'Pagar' });
+                    showTransactionModal({ name: button.name , text: button.text });
                   }
                 "
                 size="medium"
@@ -86,39 +59,6 @@ export default {
     TransactionModal,
   },
 
-  async mounted() {
-    const loader = this.$loading.show({
-      container: this.fullPage ? null : this.$refs.formContainer,
-      canCancel: true,
-      onCancel: this.onCancel,
-      opacity: 1,
-      backgroundColor: "#acacace6",
-    });
-  
-    await this.loadDefaultUser();
-    await this.loadAccount();
-
-    setTimeout(() => {
-      loader.hide();
-    }, 500);
-  },
-
-  computed: {
-    userName() {
-      const { user } = this.account;
-
-      return user ? user.name : {};
-    },
-
-    transactions() {
-      const { transactions } = this.account;
-
-      return transactions
-        ? transactions.sort((a, b) =>  new Date(b.date) - new Date(a.date))
-        : [];
-    },
-  },
-
   data() {
     return {
       transactionType: {},
@@ -126,6 +66,23 @@ export default {
       account: {},
       user: {},
       buttonloading: false,
+      buttons: [
+        {
+          text: 'Sacar',
+          name: 'withdraw',
+          color: 'link',
+        },
+        {
+          text: 'Depositar',
+          name: 'deposit',
+          color: 'success',
+        },
+        {
+          text: 'Pagar',
+          name: 'payment',
+          color: 'danger',
+        },
+      ],
       tableHeader: [
         {
           field: "transactionType",
@@ -146,6 +103,39 @@ export default {
       ],
       errorMessage: "",
     };
+  },
+
+  async mounted() {
+    const loader = this.$loading.show({
+      container: this.fullPage ? null : this.$refs.formContainer,
+      canCancel: true,
+      onCancel: this.onCancel,
+      opacity: 1,
+      backgroundColor: "#acacace6",
+    });
+
+    await this.loadDefaultUser();
+    await this.loadAccount();
+
+    setTimeout(() => {
+      loader.hide();
+    }, 500);
+  },
+
+  computed: {
+    userName() {
+      const { user } = this.account;
+
+      return user ? user.name : {};
+    },
+
+    transactions() {
+      const { transactions } = this.account;
+
+      return transactions
+        ? transactions.sort((a, b) => new Date(b.date) - new Date(a.date))
+        : [];
+    },
   },
 
   methods: {
