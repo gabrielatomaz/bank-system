@@ -2,7 +2,7 @@ using Xunit;
 
 namespace BankSystem.Domain.Tests.Entities
 {
-    public class AccountTeste
+    public class AccountTest
     {
         private readonly Account _account = new Account 
         {
