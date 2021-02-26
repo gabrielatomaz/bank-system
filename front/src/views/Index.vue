@@ -14,13 +14,16 @@
       <div class="column mr-5">
         <div class="box">
           <div class="columns">
-            <div class="column" v-for="(button, index) in buttons" :key="index">
+            <div class="column" v-for="({ text, color, name }, index) in buttons" :key="index">
               <Button
-                :text="button.text"
-                :color="button.color"
+                :text="text"
+                :color="color"
                 :event="
                   () => {
-                    showTransactionModal({ name: button.name , text: button.text });
+                    showTransactionModal({
+                      name,
+                      text,
+                    });
                   }
                 "
                 size="medium"
@@ -68,19 +71,19 @@ export default {
       buttonloading: false,
       buttons: [
         {
-          text: 'Sacar',
-          name: 'withdraw',
-          color: 'link',
+          text: "Sacar",
+          name: "withdraw",
+          color: "link",
         },
         {
-          text: 'Depositar',
-          name: 'deposit',
-          color: 'success',
+          text: "Depositar",
+          name: "deposit",
+          color: "success",
         },
         {
-          text: 'Pagar',
-          name: 'payment',
-          color: 'danger',
+          text: "Pagar",
+          name: "payment",
+          color: "danger",
         },
       ],
       tableHeader: [
