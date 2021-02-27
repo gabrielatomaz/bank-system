@@ -8,7 +8,7 @@ A aplicação é um sistema de controle de conta bancária, sendo possível real
 ![alt text](https://i.imgur.com/7lOOCJd.png)
 
 ## Começando
-Para exeutar o projeto, será necessário instalar:
+Para executar o projeto, será necessário instalar:
 * [.NET Core 5.0](hhttps://dotnet.microsoft.com/download/dotnet/5.0)
 * [MySQL](https://dev.mysql.com/downloads/mysql/)
 * [Node](https://nodejs.org/en/download/)
